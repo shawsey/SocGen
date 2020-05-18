@@ -3,6 +3,9 @@
 SocGen right now is a little quarantine project for myself to pick up Javascript development. The idea of SocGEN, or the Social Engineering Generator, is to randomly generate a detailed identity on a click. Using the list of most common names, combined with assorted job fields, locations, and background, it can quickly scaffold an identity on the go. 
 
 ## Built With
+* [Open App](https://socengen.herokuapp.com/) - socengen.herokuapp.com
+
+## Built With
 
 * [Expressjs](https://expressjs.com/) - The web framework used
 * [npm](https://www.npmjs.com/) - Dependency Management
