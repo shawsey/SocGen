@@ -1,20 +1,22 @@
 doctype
 html
   head
-    title= SocENGEN
+    title SocENGEN
+    meta( charset='utf-8' )
+    meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+    meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+    meta( name='description', content='Social Eng Generator.' )
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/chunkfive-fontface.css')
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300' type='text/css')
+
+    link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+ 
   body
-    header
-      nav
-        ul
-          li 
-            a(href="/") Home
-          li 
-            a(href="/about") About
-          li 
-            a(href="/contact") Contact
+      +nav ("socgen", "dropdown_menu", "inverse")
+        +nav_item( "/", "active" ) Home
+        +nav_item( "#" ) About
+        +nav_item( "#") Contact
+
     section#wrapper
         block content
         footer 
@@ -22,4 +24,8 @@ html
             section.four-column
               section.cell
                 a(href="https://github.com/shawsey/SocGen") Github
+
+
+    script( src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
+    script( src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' )
         
