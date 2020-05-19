@@ -1,8 +1,100 @@
-include mixins
 extends layout
+include mixins
 
 block content
   h1= title
   p Welcome to #{title}, a quarantine project for myself. The idea of SocGEN, or the Social Engineering Generator, is to randomly generate a detailed identity on a click. Using the list of most common names, combined with assorted job fields, locations, and background, it can quickly scaffold an identity on the go. 
+  
+
+  
+   #page-wrapper
+    .row
+      .col-lg-12
+      // /.col-lg-12
+    // /.row
+    .row
+      .col-lg-12
+        .panel.panel-default
+          .panel-heading
+            | Generator Panel
+          .panel-body
+            .row
+              .col-lg-6
+                form(name="form-generate", action="/" method="post" data-confirm="Ready to submit?")
+                  .form-group
+                    label Names
+                    .checkbox
+                      label
+                        input(type="checkbox", , name="fname", value="true")
+                        | First Name
+                    .checkbox
+                      label
+                        input(type="checkbox", name="mname", value="true")
+                        | Middle Name
+                    .checkbox
+                      label
+                        input(type="checkbox", name="lname", value="true")
+                        | Last Name
+
+                  .form-group
+                    label Gender
+                    .radio
+                      label
+                        input#optionsRadios1(type="radio", name="gender", value="male", checked="")
+                        | Male 
+                    .radio
+                      label
+                        input#optionsRadios2(type="radio", name="gender", value="female")
+                        | Female
+                  
+                  .form-group
+                    label Locations
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="state")
+                        | State
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="street")
+                        | Street
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="other")
+                        | Other
+
+                  
+                  button.btn.btn-default(type="submit", value="generate-form") Generate
+                  button.btn.btn-default(type="reset") Reset
+              // /.col-lg-6 (nested)
+              .col-lg-6
+                h1 Identity
+                form(role="form")
+                  fieldset(disabled="")
+                    .form-group
+                      label(for="disabledSelect") Name
+                      input#disabledInput.form-control(type="text", placeholder="", disabled="")=NameGeneration
+                    .form-group
+                    label(for="disabledSelect") Location
+                    input#disabledInput.form-control(type="text", placeholder="", disabled="")=LocationGeneration
+                    .form-group
+                    label(for="disabledSelect") Background
+                    input#disabledInput.form-control(type="text", placeholder="", disabled="")=BackgroundGeneration
+                    .form-group
+                    label(for="disabledSelect") Profession
+                    input#disabledInput.form-control(type="text", placeholder="", disabled="")=ProfessionGeneration
+
+
+                    
+                
+                
+              // /.col-lg-6 (nested)
+            // /.row (nested)
+          // /.panel-body
+        // /.panel
+      // /.col-lg-12
+    // /.row
+  // /#page-wrapper
+
+
 
 

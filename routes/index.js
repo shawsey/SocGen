@@ -18,5 +18,10 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact' });
 });
 
+router.post('/', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
 
 module.exports = router;

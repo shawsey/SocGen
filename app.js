@@ -8,6 +8,8 @@ var stylus = require('stylus');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var bodyParser = require('body-parser');
+
 var app = express();
 
 // view engine setup
@@ -39,5 +41,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+//parse generations
+app.use(bodyParser.urlencoded({ extended:true }));
+
 
 module.exports = app;

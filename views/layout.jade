@@ -1,3 +1,5 @@
+include mixins 
+
 doctype
 html
   head
@@ -14,8 +16,7 @@ html
   body
       +nav ("socgen", "dropdown_menu", "inverse")
         +nav_item( "/", "active" ) Home
-        +nav_item( "#" ) About
-        +nav_item( "#") Contact
+        
 
     section#wrapper
         block content
