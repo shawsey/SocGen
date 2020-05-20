@@ -39,7 +39,7 @@ router.post('/', function (req, res, next) {
     if (req.body.fname) {
       if ( req.body.gender == "male" ) {
         /*Male FirstName */
-        var malefndata = fs.readFileSync('/public/files/malefirst.txt');
+        var malefndata = fs.readFileSync('public/files/malefirst.txt');
         malefndata+='';
         var lines = malefndata.split('\n');
         var fname = lines[Math.floor(Math.random()*lines.length)];
@@ -47,7 +47,7 @@ router.post('/', function (req, res, next) {
         var fnamepost = fname;
       } else {
         /*Female FirstName */
-        var femalefndata = fs.readFileSync('/public/files/femalefirst.txt');
+        var femalefndata = fs.readFileSync('public/files/femalefirst.txt');
         femalefndata+='';
         var lines = femalefndata.split('\n');
         var fname = lines[Math.floor(Math.random()*lines.length)];
@@ -57,7 +57,7 @@ router.post('/', function (req, res, next) {
     }
 
     if (req.body.lname) {
-        var lndata = fs.readFileSync('/public/files/last.txt');
+        var lndata = fs.readFileSync('public/files/last.txt');
         lndata+='';
         var lines = lndata.split('\n');
         var lname = lines[Math.floor(Math.random()*lines.length)];
@@ -71,7 +71,7 @@ router.post('/', function (req, res, next) {
   /* City State Zip || Street */
 
   if (req.body.state) {
-    var statedata = fs.readFileSync('/public/files/citystatezip.txt');
+    var statedata = fs.readFileSync('public/files/citystatezip.txt');
     statedata+='';
     var lines = statedata.split('\n');
     var csz = lines[Math.floor(Math.random()*lines.length)];
@@ -90,7 +90,7 @@ router.post('/', function (req, res, next) {
   }
  
   if (req.body.phone) {
-    var phonedata = fs.readFileSync('/public/files/phonenumbers.txt');
+    var phonedata = fs.readFileSync('public/files/phonenumbers.txt');
     phonedata+='';
     var lines = phonedata.split('\n');
     var phone = lines[Math.floor(Math.random()*lines.length)];
