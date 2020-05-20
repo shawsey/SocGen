@@ -20,17 +20,13 @@ block content
           .panel-body
             .row
               .col-lg-6
-                form(name="form-generate", action="/" method="post" data-confirm="Ready to submit?")
+                form(name="form-generate", action="/" method="post")
                   .form-group
                     label Names
                     .checkbox
                       label
                         input(type="checkbox", , name="fname", value="true")
                         | First Name
-                    .checkbox
-                      label
-                        input(type="checkbox", name="mname", value="true")
-                        | Middle Name
                     .checkbox
                       label
                         input(type="checkbox", name="lname", value="true")
@@ -57,31 +53,38 @@ block content
                       label
                         input(type="checkbox", value="true", name="street")
                         | Street
+                    
+                  .form-group
+                    label Other
                     .checkbox
                       label
-                        input(type="checkbox", value="true", name="other")
-                        | Other
+                        input(type="checkbox", value="true", name="phone")
+                        | Phone 
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="occupation")
+                        | Occupation
 
                   
-                  button.btn.btn-default(type="submit", value="generate-form") Generate
+                  button.btn.btn-default(type="submit") Generate
                   button.btn.btn-default(type="reset") Reset
               // /.col-lg-6 (nested)
               .col-lg-6
-                h1 Identity
+                h1 Sample Generated Identity
                 form(role="form")
                   fieldset(disabled="")
                     .form-group
                       label(for="disabledSelect") Name
-                      input#disabledInput.form-control(type="text", placeholder="", disabled="")=NameGeneration
+                      input#disabledInput.form-control(type="text", placeholder="MALCOM ODELL", disabled="")=NameGeneration
                     .form-group
                     label(for="disabledSelect") Location
-                    input#disabledInput.form-control(type="text", placeholder="", disabled="")=LocationGeneration
+                    input#disabledInput.form-control(type="text", placeholder="Pleasanton, CA 94588-8377	", disabled="")=LocationGeneration
                     .form-group
-                    label(for="disabledSelect") Background
-                    input#disabledInput.form-control(type="text", placeholder="", disabled="")=BackgroundGeneration
+                    label(for="disabledSelect") Phone
+                    input#disabledInput.form-control(type="text", placeholder="(239) 458-4264", disabled="")=BackgroundGeneration
                     .form-group
-                    label(for="disabledSelect") Profession
-                    input#disabledInput.form-control(type="text", placeholder="", disabled="")=ProfessionGeneration
+                    label(for="disabledSelect") Occupation
+                    input#disabledInput.form-control(type="text", placeholder="Systems Analyst", disabled="")=ProfessionGeneration
 
 
                     
@@ -93,7 +96,14 @@ block content
         // /.panel
       // /.col-lg-12
     // /.row
+
+  //- .row
+    form(action="/test/submit",  method="post")
+      input(type="text", name="id")
+
+      button.btn.btn-default(type="submit") Submit -// 
   // /#page-wrapper
+
 
 
 

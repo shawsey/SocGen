@@ -43,8 +43,13 @@ app.use(function(err, req, res, next) {
 });
 
 
-//parse generations
+//parse json for id generations
 app.use(bodyParser.urlencoded({ extended:true }));
 
+app.post('/', (req, res) => {
+  console.log('Got body:', req.body);
+  res.sendStatus(200);
+  res.end;
+});
 
 module.exports = app;

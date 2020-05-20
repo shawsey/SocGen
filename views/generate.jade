@@ -1,0 +1,18 @@
+extends layout
+block content
+
+  h1 generate GET Test page
+
+  p FNAME: #{fnameinclude}
+  p LNAME: #{lnameinclude}
+  p GENDER: #{gender}
+  p STATE: #{stateinclude}
+  p STREET: #{streetinclude}
+  p PHONE: #{phoneinclude}
+  p OCCUPATION: #{occupationinclude}
+  script.
+   - if (10 == 10)
+     - var counter = "true";
+     - console.log(counter);
+
+  p Counter: #{counter}
