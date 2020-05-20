@@ -4,9 +4,8 @@ include mixins
 block content
   h1= title
   p Welcome to #{title}, a quarantine project for myself. The idea of SocGEN, or the Social Engineering Generator, is to randomly generate a detailed identity on a click. Using the list of most common names, combined with assorted job fields, locations, and background, it can quickly scaffold an identity on the go. 
-  
-
-  
+  br
+  p All information generated is all fictional, and by no means represents a real person. As well by clicking the tabs on the navigation bar, you can create DnD(Fantasy) and Cyberpunk identities too!
    #page-wrapper
     .row
       .col-lg-12
@@ -48,7 +47,7 @@ block content
                     .checkbox
                       label
                         input(type="checkbox", value="true", name="state")
-                        | State
+                        | City & State
                     .checkbox
                       label
                         input(type="checkbox", value="true", name="street")
@@ -65,9 +64,9 @@ block content
                         input(type="checkbox", value="true", name="occupation")
                         | Occupation
 
-                  
-                  button.btn.btn-default(type="submit") Generate
-                  button.btn.btn-default(type="reset") Reset
+                  .col-xs-4
+                    button.btn.btn-default.btn-block(type="submit") Generate
+                    button.btn.btn-default.btn-block(type="reset") Reset
               // /.col-lg-6 (nested)
               .col-lg-6
                 h1 Sample Generated Identity

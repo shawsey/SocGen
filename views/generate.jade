@@ -1,18 +1,28 @@
 extends layout
 block content
 
-  h1 generate GET Test page
 
-  p FNAME: #{fnameinclude}
-  p LNAME: #{lnameinclude}
-  p GENDER: #{gender}
-  p STATE: #{stateinclude}
-  p STREET: #{streetinclude}
-  p PHONE: #{phoneinclude}
-  p OCCUPATION: #{occupationinclude}
-  script.
-   - if (10 == 10)
-     - var counter = "true";
-     - console.log(counter);
+    .row
+      .col-lg-12
+      // /.col-lg-12
+    // /.row
+    .row
+      .col-lg-12
+        .panel.panel-default
+          .panel-heading
+            |Generated Identity
+          .panel-body
+            .row
 
-  p Counter: #{counter}
+            p Combined Name: #{name}
+            p LOCATION: #{cszpost}
+            p PHONE: #{phoneinclude}
+            p Phone Number: #{phonepost}
+            p OCCUPATION: #{occupationinclude}
+
+            .col-xs-2
+             a(href="/")
+              button.btn.btn-success(type='button', ) Back
+            button.btn.btn-success(onClick="window.location.reload();") Refresh Identity
+
+  

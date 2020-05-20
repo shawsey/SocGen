@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const fs = require('fs');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,21 +23,61 @@ router.get('/contact', function(req, res, next) {
 router.post('/', function (req, res, next) {
   /* Identity Form Checks */
 
-  if (req.body.fname) {
-  var fnameinclude = req.body.fname;
-  } else {
-    var fnameinclude = false;
-  }
 
-  if (req.body.lname) {
-    var lnameinclude = req.body.lname;
-    } else {
-      var lnameinclude = false;
+  /* var fnameanswer = fs.readFileSync('../SocGen/public/files/malefirst.txt', function(err, data){
+    if(err) throw err;
+    data+='';
+    var lines = data.split('\n');
+    var fname = lines[Math.floor(Math.random()*lines.length)];
+    console.log("FNAMEANSWER: " + fname);
+    processFile(fname);
+    return fname;
+  }); */
+  
+  if (req.body.fname || req.body.lname ) {
+    
+    if (req.body.fname) {
+      if ( req.body.gender == "male" ) {
+        /*Male FirstName */
+        var malefndata = fs.readFileSync('../SocGen/public/files/malefirst.txt');
+        malefndata+='';
+        var lines = malefndata.split('\n');
+        var fname = lines[Math.floor(Math.random()*lines.length)];
+        console.log("MaleNAMEANSWER: " + fname);
+        var fnamepost = fname;
+      } else {
+        /*Female FirstName */
+        var femalefndata = fs.readFileSync('../SocGen/public/files/femalefirst.txt');
+        femalefndata+='';
+        var lines = femalefndata.split('\n');
+        var fname = lines[Math.floor(Math.random()*lines.length)];
+        console.log("FemaleNAMEANSWER: " + fname);
+        var fnamepost = fname;
+      }
     }
+
+    if (req.body.lname) {
+        var lndata = fs.readFileSync('../SocGen/public/files/last.txt');
+        lndata+='';
+        var lines = lndata.split('\n');
+        var lname = lines[Math.floor(Math.random()*lines.length)];
+        console.log("LASTNAMEANSWER: " + lname);
+        var lnamepost = lname;
+      }
+
+    var name = fnamepost.concat(lnamepost);
+  }
   
-  var gender = req.body.gender;
-  
+  /* City State Zip || Street */
+
   if (req.body.state) {
+    var statedata = fs.readFileSync('../SocGen/public/files/citystatezip.txt');
+    statedata+='';
+    var lines = statedata.split('\n');
+    var csz = lines[Math.floor(Math.random()*lines.length)];
+    console.log("City State Zip ANSWER: " + csz);
+    var cszpost = csz;
+
     var stateinclude = req.body.state;
   } else {
     var stateinclude = false;
@@ -46,8 +88,15 @@ router.post('/', function (req, res, next) {
   } else {
     var streetinclude = false;
   }
-
+ 
   if (req.body.phone) {
+    var phonedata = fs.readFileSync('../SocGen/public/files/phonenumbers.txt');
+    phonedata+='';
+    var lines = phonedata.split('\n');
+    var phone = lines[Math.floor(Math.random()*lines.length)];
+    console.log("Phone number ANSWER: " + phone);
+    var phonepost = phone;
+
     var phoneinclude = req.body.phone;
   } else {
     var phoneinclude = false;
@@ -59,7 +108,8 @@ router.post('/', function (req, res, next) {
     var occupationinclude = false;
   }
 
-    res.render('generate', { fnameinclude, lnameinclude, gender, stateinclude, streetinclude, phoneinclude, occupationinclude});
+
+    res.render('generate', { name, fnamepost, lnamepost, cszpost, stateinclude, streetinclude, phoneinclude, phonepost, occupationinclude});
   
 
 });
