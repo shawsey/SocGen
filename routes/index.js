@@ -54,6 +54,8 @@ router.post('/', function (req, res, next) {
         console.log("FemaleNAMEANSWER: " + fname);
         var fnamepost = fname;
       }
+    } else {
+      var fnamepost = "";
     }
 
     if (req.body.lname) {
@@ -63,6 +65,8 @@ router.post('/', function (req, res, next) {
         var lname = lines[Math.floor(Math.random()*lines.length)];
         console.log("LASTNAMEANSWER: " + lname);
         var lnamepost = lname;
+      } else {
+        var lnamepost = "";
       }
 
     var name = fnamepost.concat(lnamepost);
@@ -70,23 +74,32 @@ router.post('/', function (req, res, next) {
   
   /* City State Zip || Street */
 
-  if (req.body.state) {
-    var statedata = fs.readFileSync('public/files/citystatezip.txt');
-    statedata+='';
-    var lines = statedata.split('\n');
-    var csz = lines[Math.floor(Math.random()*lines.length)];
-    console.log("City State Zip ANSWER: " + csz);
-    var cszpost = csz;
+  if (req.body.state || req.body.street ) {
 
-    var stateinclude = req.body.state;
-  } else {
-    var stateinclude = false;
-  }
- 
-  if (req.body.street) {
-    var streetinclude = req.body.street;
-  } else {
-    var streetinclude = false;
+    if (req.body.state) {
+      var statedata = fs.readFileSync('public/files/citystatezip.txt');
+      statedata+='';
+      var lines = statedata.split('\n');
+      var csz = lines[Math.floor(Math.random()*lines.length)];
+      console.log("City State Zip ANSWER: " + csz);
+      var cszpost = csz;
+
+    } else {
+      var cszpost = "";
+    }
+  
+    if (req.body.street) {
+      var streetdata = fs.readFileSync('public/files/streetads.txt');
+      streetdata+='';
+      var lines = streetdata.split('\n');
+      var street = lines[Math.floor(Math.random()*lines.length)];
+      console.log("Phone number ANSWER: " + street);
+      var streetpost = street;
+    } else {
+      var streetpost = "";
+    }
+
+    var location = streetpost.concat(cszpost);
   }
  
   if (req.body.phone) {
@@ -103,13 +116,16 @@ router.post('/', function (req, res, next) {
   }
 
   if (req.body.occupation) {
-    var occupationinclude = req.body.occupation;
-  } else {
-    var occupationinclude = false;
+    var jobdata = fs.readFileSync('public/files/occupations.txt');
+    jobdata+='';
+    var lines = jobdata.split('\n');
+    var job = lines[Math.floor(Math.random()*lines.length)];
+    console.log("Occupation ANSWER: " + job);
+    var occupationpost = job;
   }
 
 
-    res.render('generate', { name, fnamepost, lnamepost, cszpost, stateinclude, streetinclude, phoneinclude, phonepost, occupationinclude});
+    res.render('generate', { name, fnamepost, lnamepost, location, phoneinclude, phonepost, occupationpost});
   
 
 });

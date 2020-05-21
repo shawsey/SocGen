@@ -1,0 +1,19 @@
+Secretary
+Elementary Teacher
+High School Teacher
+Cashier
+Office Clerk
+Manager
+Waiter/Waitress
+Sales Worker
+Registered Nurse
+Nursing Aide
+Truck Driver
+Janitor/Cleaner
+Production Supervisor
+Laborer
+Sales Representative
+Auto Mechanic
+System Analyst
+Store Clerk
+Programmer
