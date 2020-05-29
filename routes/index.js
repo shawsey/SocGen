@@ -20,19 +20,16 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact' });
 });
 
+/* Get Alternate Generation Page -2 */
+router.get('/dnd', function(req, res, next) {
+  res.render('dnd', {title:"dndgen"});
+})
+
 router.post('/', function (req, res, next) {
   /* Identity Form Checks */
 
 
-  /* var fnameanswer = fs.readFileSync('../SocGen/public/files/malefirst.txt', function(err, data){
-    if(err) throw err;
-    data+='';
-    var lines = data.split('\n');
-    var fname = lines[Math.floor(Math.random()*lines.length)];
-    console.log("FNAMEANSWER: " + fname);
-    processFile(fname);
-    return fname;
-  }); */
+  
   
   if (req.body.fname || req.body.lname ) {
     
@@ -145,5 +142,8 @@ router.post('/test/submit', function(req, res, next) {
 router.get('/test/:id', function(req, res, next) {
   res.render('test', { output: req.params.id });
 });
+
+
+
 
 module.exports = router;

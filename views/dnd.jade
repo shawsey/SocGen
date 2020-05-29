@@ -1,0 +1,109 @@
+extends layout
+include mixins
+
+block content
+  h1= title
+  p Welcome to #{title} - Alterrnative Generation Panel
+  br
+    p All information generated is all fictional, and by no means represents a real person. As well by clicking the tabs on the navigation bar, you can create DnD(Fantasy) and Cyberpunk identities too!
+   #page-wrapper
+    .row
+      .col-lg-12
+      // /.col-lg-12
+    // /.row
+    .row
+      .col-lg-12
+        .panel.panel-default
+          .panel-heading
+            | Generator Panel
+          .panel-body
+            .row
+              .col-lg-6
+                form(name="form-generate", action="/" method="post")
+                  .form-group
+                    label Names
+                    .checkbox
+                      label
+                        input(type="checkbox", , name="fname", value="true")
+                        | First Name
+                    .checkbox
+                      label
+                        input(type="checkbox", name="lname", value="true")
+                        | Last Name
+
+                  .form-group
+                    label Gender
+                    .radio
+                      label
+                        input#optionsRadios1(type="radio", name="gender", value="male", checked="")
+                        | Male 
+                    .radio
+                      label
+                        input#optionsRadios2(type="radio", name="gender", value="female")
+                        | Female
+                  
+                  .form-group
+                    label Locations
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="state")
+                        | City & State
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="street")
+                        | Street
+                    
+                  .form-group
+                    label Other
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="phone")
+                        | Phone 
+                    .checkbox
+                      label
+                        input(type="checkbox", value="true", name="occupation")
+                        | Occupation
+
+                  .col-xs-4
+                    button.btn.btn-default.btn-block(type="submit") Generate
+                    button.btn.btn-default.btn-block(type="reset") Reset
+              // /.col-lg-6 (nested)
+              .col-lg-6
+                h1 Sample Generated Identity
+                form(role="form")
+                  fieldset(disabled="")
+                    .form-group
+                      label(for="disabledSelect") Name
+                      input#disabledInput.form-control(type="text", placeholder="MALCOM ODELL", disabled="")=NameGeneration
+                    .form-group
+                    label(for="disabledSelect") Location
+                    input#disabledInput.form-control(type="text", placeholder="Pleasanton, CA 94588-8377	", disabled="")=LocationGeneration
+                    .form-group
+                    label(for="disabledSelect") Phone
+                    input#disabledInput.form-control(type="text", placeholder="(239) 458-4264", disabled="")=BackgroundGeneration
+                    .form-group
+                    label(for="disabledSelect") Occupation
+                    input#disabledInput.form-control(type="text", placeholder="Systems Analyst", disabled="")=ProfessionGeneration
+
+
+                    
+                
+                
+              // /.col-lg-6 (nested)
+            // /.row (nested)
+          // /.panel-body
+        // /.panel
+      // /.col-lg-12
+    // /.row
+
+  //- .row
+    form(action="/test/submit",  method="post")
+      input(type="text", name="id")
+
+      button.btn.btn-default(type="submit") Submit -// 
+  // /#page-wrapper
+
+
+
+
+
